@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.0-M3</version>
+		<version>2.4.0-RC1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
@@ -54,6 +54,38 @@
 			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!--redisson-->
+		<dependency>
+			<groupId>org.redisson</groupId>
+			<artifactId>redisson-spring-boot-starter</artifactId>
+			<version>3.13.6</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.redisson</groupId>
+					<artifactId>redisson-spring-data-23</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.redisson</groupId>
+			<artifactId>redisson-spring-data-21</artifactId>
+			<version>3.13.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-resources-plugin</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
@@ -61,7 +93,22 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>		
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+<!--				<configuration>-->
+<!--					<encoding>UTF-8</encoding>-->
+<!--					&lt;!&ndash; 过滤后缀为pem、pfx的证书文件 &ndash;&gt;-->
+<!--					<nonFilteredFileExtensions>-->
+<!--						<nonFilteredFileExtension>pem</nonFilteredFileExtension>-->
+<!--						<nonFilteredFileExtension>pfx</nonFilteredFileExtension>-->
+<!--						<nonFilteredFileExtension>p12</nonFilteredFileExtension>-->
+<!--					</nonFilteredFileExtensions>-->
+<!--				</configuration>-->
+			</plugin>
+
 		</plugins>
 	</build>
 
